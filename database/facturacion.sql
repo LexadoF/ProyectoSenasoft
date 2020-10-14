@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2020 a las 22:07:38
+-- Tiempo de generación: 15-10-2020 a las 00:15:00
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.2.33
 
@@ -28,9 +28,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categorias` (
-  `Id` int(11) NOT NULL,
+  `Id` int(11) NOT NULL COMMENT 'Identificador de la tabla Categoria',
   `Nombre` varchar(100) NOT NULL COMMENT 'nombre de la categoria ',
   `NitEmpresa` int(11) NOT NULL COMMENT 'nit de la empresa a la que pertenece la categoria'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cliente`
+--
+
+CREATE TABLE `cliente` (
+  `DocCliente` varchar(30) NOT NULL COMMENT 'Documento del cliente, se usara para identificar a los clientes relacionados con respectivas operaciones',
+  `NombreCliente` varchar(100) NOT NULL COMMENT 'Nombre del cliente',
+  `TelefonoCliente` varchar(100) NOT NULL COMMENT 'Telefono del cliente',
+  `DireccionCliente` varchar(50) NOT NULL COMMENT 'Direccion del cliente, se utilizara en caso de que se necesite',
+  `Estado` tinyint(1) NOT NULL COMMENT 'Estado del cliente, puede estar habilitado o deshabilitado'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -40,10 +54,12 @@ CREATE TABLE `categorias` (
 --
 
 CREATE TABLE `datosproductofactura` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL COMMENT 'Identificador unico del detalle de productos y factura',
   `idProducto` int(11) NOT NULL COMMENT 'Identificador del producto el cual se agregara',
   `idFactura` int(11) NOT NULL COMMENT 'Identificador de la factura a la cual pertenece este detalle',
-  `PrecioUPr` double NOT NULL DEFAULT 0 COMMENT 'Valor unitario del producto que se utilizara para obtener luego el valor total '
+  `CantidadProd` int(11) NOT NULL DEFAULT 1 COMMENT 'Cantidad seleccionada de este producto para esta factura',
+  `PrecioUPr` double NOT NULL DEFAULT 0 COMMENT 'Valor unitario del producto que se utilizara para obtener luego el valor total ',
+  `SubTot` int(11) NOT NULL COMMENT 'Valor subtotal calculado de la cantidad de productos por el precio unitario de los mismos'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -53,10 +69,10 @@ CREATE TABLE `datosproductofactura` (
 --
 
 CREATE TABLE `empresa` (
-  `Nit` int(11) NOT NULL,
-  `Nombre` varchar(100) NOT NULL,
-  `Direccion` varchar(100) NOT NULL,
-  `Telefono` varchar(25) NOT NULL
+  `Nit` int(11) NOT NULL COMMENT 'Nit de la empresa que actuara como identificador',
+  `Nombre` varchar(100) NOT NULL COMMENT 'Nombre de la empresa',
+  `Direccion` varchar(100) NOT NULL COMMENT 'Direccion de la empresa, es unica debido a que no se encontrara mas de una empresa por direccion',
+  `Telefono` varchar(25) NOT NULL COMMENT 'Telefono principal de contacto con la empresa'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -66,11 +82,11 @@ CREATE TABLE `empresa` (
 --
 
 CREATE TABLE `factura` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL COMMENT 'Identificador unico de la factura',
   `DocCliente` varchar(30) NOT NULL COMMENT 'Documento del cliente a quien se le realiza la factura',
-  `NombreCliente` varchar(50) NOT NULL COMMENT 'Nombre del cliente a quien se le realiza la factura',
-  `DocPersonaEncargada` varchar(30) NOT NULL,
+  `DocPersonaEncargada` varchar(30) NOT NULL COMMENT 'Documento del empleado o encargado que genera esta factura',
   `fecha` date NOT NULL DEFAULT current_timestamp() COMMENT 'fecha de la factura, por defecto es la fecha actual',
+  `Valor total` double NOT NULL DEFAULT 0 COMMENT 'Valor total de la factura, calculado mediante los datos consultados de datosfacturaproducto sumando todos los valores unitarios',
   `estado` tinyint(1) NOT NULL COMMENT 'estado de la factura, la cual es en espera en caso de no contarse con stock'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -84,10 +100,10 @@ CREATE TABLE `persona` (
   `Documento` varchar(30) NOT NULL COMMENT 'Documento de la persona',
   `Nombre` varchar(100) NOT NULL COMMENT 'Nombre completo de la persona',
   `Direccion` varchar(100) NOT NULL COMMENT 'Direccion de la persona',
-  `Telefono` varchar(25) NOT NULL,
+  `Telefono` varchar(25) NOT NULL COMMENT 'Telefono del trabajador o encargado',
   `Correo` varchar(50) NOT NULL COMMENT 'Correo de la persona, no se pueden registrar 2 personas con el mismo correo',
   `Contrasena` varchar(100) NOT NULL COMMENT 'clave de la cuenta de esta persona',
-  `NitEmpresa` int(11) NOT NULL,
+  `NitEmpresa` int(11) NOT NULL COMMENT 'Nit de la empresa a la que pertenece el empleado o encargado',
   `estado` tinyint(1) NOT NULL COMMENT 'estado de la persona en el sistema, puede ser activo o inactivo'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -98,9 +114,10 @@ CREATE TABLE `persona` (
 --
 
 CREATE TABLE `productos` (
-  `id` int(11) NOT NULL,
-  `Nombre` int(11) NOT NULL,
-  `Precio` double NOT NULL DEFAULT 0 COMMENT 'precio del producto por unidad, admite decimales en caso de ser necesario',
+  `id` int(11) NOT NULL COMMENT 'Identificador individual de cada producto',
+  `Nombre` int(11) NOT NULL COMMENT 'Refiere al nombre del producto',
+  `stock` int(11) NOT NULL COMMENT 'Indica cuantos productos se encuentran en stock actualmente',
+  `Precio` double NOT NULL COMMENT 'precio del producto por unidad, admite decimales en caso de ser necesario',
   `IdCategoria` int(11) NOT NULL COMMENT 'categoria a la que pertenece el producto'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -114,6 +131,12 @@ CREATE TABLE `productos` (
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`Id`),
   ADD KEY `NitEmpresa` (`NitEmpresa`);
+
+--
+-- Indices de la tabla `cliente`
+--
+ALTER TABLE `cliente`
+  ADD PRIMARY KEY (`DocCliente`);
 
 --
 -- Indices de la tabla `datosproductofactura`
@@ -135,7 +158,8 @@ ALTER TABLE `empresa`
 --
 ALTER TABLE `factura`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `DocPersonaEncargada` (`DocPersonaEncargada`);
+  ADD KEY `DocPersonaEncargada` (`DocPersonaEncargada`),
+  ADD KEY `DocCliente` (`DocCliente`);
 
 --
 -- Indices de la tabla `persona`
@@ -160,25 +184,25 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identificador de la tabla Categoria';
 
 --
 -- AUTO_INCREMENT de la tabla `datosproductofactura`
 --
 ALTER TABLE `datosproductofactura`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identificador unico del detalle de productos y factura';
 
 --
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identificador unico de la factura';
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identificador individual de cada producto';
 
 --
 -- Restricciones para tablas volcadas
@@ -201,7 +225,8 @@ ALTER TABLE `datosproductofactura`
 -- Filtros para la tabla `factura`
 --
 ALTER TABLE `factura`
-  ADD CONSTRAINT `factura_ibfk_1` FOREIGN KEY (`DocPersonaEncargada`) REFERENCES `persona` (`Documento`);
+  ADD CONSTRAINT `factura_ibfk_1` FOREIGN KEY (`DocPersonaEncargada`) REFERENCES `persona` (`Documento`),
+  ADD CONSTRAINT `factura_ibfk_2` FOREIGN KEY (`DocCliente`) REFERENCES `cliente` (`DocCliente`);
 
 --
 -- Filtros para la tabla `persona`
