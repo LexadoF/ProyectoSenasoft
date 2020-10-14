@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoginService } from './services/login.service';
+// import { LoginService } from './services/login.service';
 
 @Component({
   selector: 'app-root',
@@ -12,19 +12,19 @@ export class AppComponent {
     contrasena: null
   };
 
-  constructor( private loginService: LoginService ){
-
+  constructor( ){
+    // private loginService: LoginService
 
   }
   loginUsuario(){
-    this.loginService.loginUsuario(this.login).subscribe (
-      datos => {
-        if(datos[ "resultado" ] == 'OK'){
-          alert(datos['Mensaje']);
-        } else {
-          alert(datos['Mensaje']);
-        }
-      }
-    );
+    // this.loginService.loginUsuario(this.login).subscribe (
+    //   datos => {
+    //     if(datos[ "resultado" ] == 'OK'){
+    //       alert(datos['Mensaje']);
+    //     } else {
+    //       alert(datos['Mensaje']);
+    //     }
+    //   }
+    // );
   }
 }
