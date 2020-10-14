@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2020 a las 21:26:15
+-- Tiempo de generación: 14-10-2020 a las 22:07:38
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.2.33
 
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categorias` (
   `Id` int(11) NOT NULL,
-  `Nombre` varchar(100) NOT NULL,
-  `NitEmpresa` int(11) NOT NULL
+  `Nombre` varchar(100) NOT NULL COMMENT 'nombre de la categoria ',
+  `NitEmpresa` int(11) NOT NULL COMMENT 'nit de la empresa a la que pertenece la categoria'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -41,8 +41,9 @@ CREATE TABLE `categorias` (
 
 CREATE TABLE `datosproductofactura` (
   `id` int(11) NOT NULL,
-  `idProducto` int(11) NOT NULL,
-  `idFactura` int(11) NOT NULL
+  `idProducto` int(11) NOT NULL COMMENT 'Identificador del producto el cual se agregara',
+  `idFactura` int(11) NOT NULL COMMENT 'Identificador de la factura a la cual pertenece este detalle',
+  `PrecioUPr` double NOT NULL DEFAULT 0 COMMENT 'Valor unitario del producto que se utilizara para obtener luego el valor total '
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -66,9 +67,11 @@ CREATE TABLE `empresa` (
 
 CREATE TABLE `factura` (
   `id` int(11) NOT NULL,
-  `NombreCliente` varchar(50) NOT NULL,
+  `DocCliente` varchar(30) NOT NULL COMMENT 'Documento del cliente a quien se le realiza la factura',
+  `NombreCliente` varchar(50) NOT NULL COMMENT 'Nombre del cliente a quien se le realiza la factura',
   `DocPersonaEncargada` varchar(30) NOT NULL,
-  `fecha` date NOT NULL DEFAULT current_timestamp()
+  `fecha` date NOT NULL DEFAULT current_timestamp() COMMENT 'fecha de la factura, por defecto es la fecha actual',
+  `estado` tinyint(1) NOT NULL COMMENT 'estado de la factura, la cual es en espera en caso de no contarse con stock'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -78,13 +81,14 @@ CREATE TABLE `factura` (
 --
 
 CREATE TABLE `persona` (
-  `Documento` varchar(30) NOT NULL,
-  `Nombre` varchar(100) NOT NULL,
-  `Direccion` varchar(100) NOT NULL,
+  `Documento` varchar(30) NOT NULL COMMENT 'Documento de la persona',
+  `Nombre` varchar(100) NOT NULL COMMENT 'Nombre completo de la persona',
+  `Direccion` varchar(100) NOT NULL COMMENT 'Direccion de la persona',
   `Telefono` varchar(25) NOT NULL,
-  `Correo` varchar(50) NOT NULL,
-  `Contrasena` varchar(100) NOT NULL,
-  `NitEmpresa` int(11) NOT NULL
+  `Correo` varchar(50) NOT NULL COMMENT 'Correo de la persona, no se pueden registrar 2 personas con el mismo correo',
+  `Contrasena` varchar(100) NOT NULL COMMENT 'clave de la cuenta de esta persona',
+  `NitEmpresa` int(11) NOT NULL,
+  `estado` tinyint(1) NOT NULL COMMENT 'estado de la persona en el sistema, puede ser activo o inactivo'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -96,8 +100,8 @@ CREATE TABLE `persona` (
 CREATE TABLE `productos` (
   `id` int(11) NOT NULL,
   `Nombre` int(11) NOT NULL,
-  `Precio` double NOT NULL,
-  `IdCategoria` int(11) NOT NULL
+  `Precio` double NOT NULL DEFAULT 0 COMMENT 'precio del producto por unidad, admite decimales en caso de ser necesario',
+  `IdCategoria` int(11) NOT NULL COMMENT 'categoria a la que pertenece el producto'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
