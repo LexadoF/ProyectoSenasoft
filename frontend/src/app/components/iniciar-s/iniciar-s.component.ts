@@ -11,6 +11,7 @@ export class IniciarSComponent {
     usuario: null,
     contrasena: null
   };
+  path = 'inicio';
 
   constructor( private loginService: LoginService ){}
 
