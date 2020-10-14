@@ -8,3 +8,10 @@
     margin: 0 auto;
     border-collapse: collapse;
 }
+
+.contable {
+    text-align: center;
+    border-collapse: collapse;
+    margin: 0 auto;
+    border: 1pt solid black;
+}
