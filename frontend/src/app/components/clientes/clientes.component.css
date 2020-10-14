@@ -1,0 +1,10 @@
+.table {
+    border: 1pt solid black;
+    text-align: center;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.contenedor2 {
+    padding-left: 40%;
+}
