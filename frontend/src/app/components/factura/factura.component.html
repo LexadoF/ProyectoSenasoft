@@ -1,5 +1,6 @@
 <p>factura works!</p>
 <div class="container">
+    <hr>
     <h5>Datos del Cliente</h5>
     <div class="contenedorb">
         <form class="form-inline my-2 my-lg-0">
@@ -8,26 +9,27 @@
         </form>
     </div>
     <br>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th scope="col">Documento</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Correo</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1231465</td>
-                <td>Santy Reina</td>
-                <td>Reina@gmail.com</td>
-            </tr>
-        </tbody>
-    </table>
-
+    <div class="table">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Documento</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Correo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1231465</td>
+                    <td>Santy Reina</td>
+                    <td>Reina@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 <br><br><br>
-
+<hr>
 <h5>Datos del Producto</h5>
 <div class="contenedorb">
     <form class="form-inline my-2 my-lg-0">
@@ -63,30 +65,44 @@
     </table>
 </div>
 <br><br><br><br>
-<div class="container">
+<hr>
+<div class="table">
     <h3>Factura</h3>
     <table class="table table-bordered">
         <thead>
             <tr>
+                <th scope="col">Cantidad</th>
                 <th scope="col">Producto</th>
-                <th scope="col">Stock</th>
                 <th scope="col">Precio</th>
-                <th>Cantidad</th>
-                <th scope="col">Operaciones</th>
+                <th scope="col">Subtotal</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Agua Cirstal</td>
                 <td>20</td>
+                <td>Aceite</td>
                 <td>500</td>
-                <td>
-                    <div class="col-10">
-                        <input class="form-control" type="number" value="42" id="example-number-input">
-                    </div>
-                </td>
-                <th><button class="btn btn-primary">Añadir</button></th>
+                <td>10.000</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Jeans</td>
+                <td>500</td>
+                <td>5.000</td>
             </tr>
         </tbody>
     </table>
 </div>
+<div class="contable">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Total</th>
+                <th scope="col">15.000</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+<br>
+<button class="btn btn-outline-primary">Imprimir Factura</button>
+<br><br>
