@@ -1,40 +1,91 @@
 <p>factura works!</p>
-<div>
+<div class="container">
+    <h5>Datos del Cliente</h5>
+    <div class="contenedorb">
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
+    </div>
+    <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Documento</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Correo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1231465</td>
+                <td>Santy Reina</td>
+                <td>Reina@gmail.com</td>
+            </tr>
+        </tbody>
+    </table>
 
+</div>
+<br><br><br>
+
+<h5>Datos del Producto</h5>
+<div class="contenedorb">
     <form class="form-inline my-2 my-lg-0">
-        <label for="">Datos del Cliente</label>
         <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
     </form>
 </div>
 <br>
-<div>
-    <label for="">Datos del Cliente</label>
-</div>
-<br>
 <div class="table">
-
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Cantidad</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Stock</th>
                 <th scope="col">Precio</th>
-                <th scope="col">Estado</th>
+                <th>Cantidad</th>
+                <th scope="col">Operaciones</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Santy</td>
-                <td>1</td>
-                <td>0000.00</td>
-                <td>Activo</td>
+                <td>Agua Cirstal</td>
+                <td>20</td>
+                <td>500</td>
+                <td>
+                    <div class="col-10">
+                        <input class="form-control" type="number" value="42" id="example-number-input">
+                    </div>
+                </td>
+                <th><button class="btn btn-primary">Añadir</button></th>
             </tr>
+        </tbody>
+    </table>
+</div>
+<br><br><br><br>
+<div class="container">
+    <h3>Factura</h3>
+    <table class="table table-bordered">
+        <thead>
             <tr>
-                <td>Fox</td>
-                <td>1/2</td>
-                <td>00000000000000.000000</td>
-                <td>fat</td>
+                <th scope="col">Producto</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Precio</th>
+                <th>Cantidad</th>
+                <th scope="col">Operaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Agua Cirstal</td>
+                <td>20</td>
+                <td>500</td>
+                <td>
+                    <div class="col-10">
+                        <input class="form-control" type="number" value="42" id="example-number-input">
+                    </div>
+                </td>
+                <th><button class="btn btn-primary">Añadir</button></th>
             </tr>
         </tbody>
     </table>
