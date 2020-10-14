@@ -5,6 +5,18 @@
     border-collapse: collapse;
 }
 
+.contenedor {
+    padding-left: 40%;
+}
+
+.contenedor2 {
+    padding-left: 40%;
+}
+
 .btn {
     margin-right: 5px;
+}
+
+.boton {
+    margin-bottom: 200px;
 }
