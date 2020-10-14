@@ -18,6 +18,8 @@ import { RegistrarseComponent } from './components/registrarse/registrarse.compo
 import { InventarioComponent } from './components/inventario/inventario.component';
 import { FacturaComponent } from './components/factura/factura.component';
 
+import { ClientesComponent } from './components/clientes/clientes.component';
+
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { FacturaComponent } from './components/factura/factura.component';
     IniciarSComponent,
     RegistrarseComponent,
     InventarioComponent,
-    FacturaComponent
+    FacturaComponent,
+    ClientesComponent
   ],
   imports: [
     BrowserModule,
