@@ -15,6 +15,8 @@ import {  } from '../app/services/login.service';
 import { LoginService } from './services/login.service';
 import { IniciarSComponent } from './components/iniciar-s/iniciar-s.component';
 import { RegistrarseComponent } from './components/registrarse/registrarse.component';
+import { InventarioComponent } from './components/inventario/inventario.component';
+import { FacturaComponent } from './components/factura/factura.component';
 
 
 
@@ -26,7 +28,9 @@ import { RegistrarseComponent } from './components/registrarse/registrarse.compo
     ContactoComponent,
     InicioComponent,
     IniciarSComponent,
-    RegistrarseComponent
+    RegistrarseComponent,
+    InventarioComponent,
+    FacturaComponent
   ],
   imports: [
     BrowserModule,

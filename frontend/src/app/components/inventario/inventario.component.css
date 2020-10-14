@@ -1,0 +1,10 @@
+.table {
+    border: 1pt solid black;
+    text-align: center;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.btn {
+    margin-right: 5px;
+}
