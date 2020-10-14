@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
+<<<<<<< HEAD
 -- Tiempo de generación: 14-10-2020 a las 18:18:13
+=======
+-- Tiempo de generación: 14-10-2020 a las 17:33:21
+>>>>>>> parent of 33c7f23... Revert "Merge branch 'main' of https://github.com/LexadoF/ProyectoSenasoft into main"
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.2.33
 
@@ -72,7 +76,12 @@ CREATE TABLE `productos` (
   `id` int(11) NOT NULL,
   `Nombre` int(11) NOT NULL,
   `Precio` double NOT NULL,
+<<<<<<< HEAD
   `IdCategoria` int(11) NOT NULL
+=======
+  `IdCategoria` int(11) NOT NULL,
+  `NitEmpresa` int(11) NOT NULL
+>>>>>>> parent of 33c7f23... Revert "Merge branch 'main' of https://github.com/LexadoF/ProyectoSenasoft into main"
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -83,8 +92,12 @@ CREATE TABLE `productos` (
 -- Indices de la tabla `categorias`
 --
 ALTER TABLE `categorias`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`Id`),
   ADD KEY `NitEmpresa` (`NitEmpresa`);
+=======
+  ADD PRIMARY KEY (`Id`);
+>>>>>>> parent of 33c7f23... Revert "Merge branch 'main' of https://github.com/LexadoF/ProyectoSenasoft into main"
 
 --
 -- Indices de la tabla `empresa`
@@ -105,8 +118,12 @@ ALTER TABLE `persona`
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`id`),
   ADD KEY `IdCategoria` (`IdCategoria`);
+=======
+  ADD PRIMARY KEY (`id`);
+>>>>>>> parent of 33c7f23... Revert "Merge branch 'main' of https://github.com/LexadoF/ProyectoSenasoft into main"
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -129,22 +146,28 @@ ALTER TABLE `productos`
 --
 
 --
+<<<<<<< HEAD
 -- Filtros para la tabla `categorias`
 --
 ALTER TABLE `categorias`
   ADD CONSTRAINT `categorias_ibfk_1` FOREIGN KEY (`NitEmpresa`) REFERENCES `empresa` (`Nit`);
 
 --
+=======
+>>>>>>> parent of 33c7f23... Revert "Merge branch 'main' of https://github.com/LexadoF/ProyectoSenasoft into main"
 -- Filtros para la tabla `persona`
 --
 ALTER TABLE `persona`
   ADD CONSTRAINT `persona_ibfk_1` FOREIGN KEY (`NitEmpresa`) REFERENCES `empresa` (`Nit`);
+<<<<<<< HEAD
 
 --
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`IdCategoria`) REFERENCES `categorias` (`Id`);
+=======
+>>>>>>> parent of 33c7f23... Revert "Merge branch 'main' of https://github.com/LexadoF/ProyectoSenasoft into main"
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
