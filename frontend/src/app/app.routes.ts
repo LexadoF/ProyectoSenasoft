@@ -10,7 +10,7 @@ const APP_ROUTES: Routes = [
   {path: 'inicio', component: InicioComponent},
   {path: 'nosotros', component: NosotrosComponent },
   {path: 'contacto', component: ContactoComponent },
-  {path: 'Iniciars', component: IniciarSComponent },
+  {path: 'iniciars', component: IniciarSComponent },
   {path: 'registrarse', component: RegistrarseComponent },
   {path: '**', pathMatch: 'full', redirectTo: 'inicio'}
 ];
