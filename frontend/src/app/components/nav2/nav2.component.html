@@ -1,1 +1,38 @@
-<p>nav2 works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Inventario</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" routerLinkActive="active">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" (click)="inicio()">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="nosotros()">Nosotros</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="contacto()"> Contacto</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Items
+              </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" routerLinkActive="active">
+
+                    <a class="dropdown-item" (click)="inventario()">Inventario</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" (click)="factura()">Factura</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" (click)="cliente()">Clientes</a>
+                </div>
+            </li>
+
+        </ul>
+        <div class="main-container">
+            <a (click)="logout()" class="btn btn-outline-danger">Salir</a>
+            <!-- <button (click)="registrarse()" class="btn btn-outline-success">Registrarse</button> -->
+        </div>
+    </div>
+</nav>

@@ -21,6 +21,16 @@ export class NavbarComponent implements OnInit {
   registrarse() {
     this.router.navigate(['/registrarse']);
   }
+
+  inicio() {
+    this.router.navigate(['/inicio']);
+  }
+  nosotros() {
+    this.router.navigate(['/nosotros']);
+  }
+  contacto() {
+    this.router.navigate(['/contacto']);
+  }
   // loginUsuario(login){
   //   return this.http.post(`${this.URL}/Login.php`, JSON.stringify(login));
   // }

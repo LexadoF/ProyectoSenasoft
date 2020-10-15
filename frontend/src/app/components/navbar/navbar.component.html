@@ -6,16 +6,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent" routerLinkActive="active">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" [routerLink]="['inicio']">Inicio</a>
+                <a class="nav-link" (click)="inicio()">Inicio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['nosotros']">Nosotros</a>
+                <a class="nav-link" (click)="nosotros()">Nosotros</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['contacto']"> Contacto</a>
+                <a class="nav-link" (click)="contacto()"> Contacto</a>
             </li>
 
-            <li class="nav-item dropdown">
+            <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Items
               </a>
@@ -27,7 +27,7 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" [routerLink]="['cliente']">Clientes</a>
                 </div>
-            </li>
+            </li> -->
 
         </ul>
         <div class="main-container">
