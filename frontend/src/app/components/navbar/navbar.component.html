@@ -3,7 +3,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-    <div class="collapse navbar-collapse" id="navbarText" routerLinkActive="active">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" routerLinkActive="active">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link" [routerLink]="['inicio']">Inicio</a>
@@ -14,20 +14,25 @@
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['contacto']"> Contacto</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['inventario']">Inventario</a>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Items
+              </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" routerLinkActive="active">
+
+                    <a class="dropdown-item" [routerLink]="['inventario']">Inventario</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" [routerLink]="['factura']">Factura</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" [routerLink]="['cliente']">Clientes</a>
+                </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['factura']">factura</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['cliente']">Clientes</a>
-            </li>
+
         </ul>
         <div class="main-container">
-            <a [routerLink]="['iniciars']" class="btn btn-outline-success">Iniciar Sesion</a>
-
-            <button [routerLink]="['registrarse']" class="btn btn-outline-success">Registrarse</button>
+            <a (click)="iniciarS()" class="btn btn-outline-success">Iniciar Sesion</a>
+            <button (click)="registrarse()" class="btn btn-outline-success">Registrarse</button>
         </div>
     </div>
 </nav>

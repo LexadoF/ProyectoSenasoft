@@ -1,5 +1,6 @@
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -9,11 +10,17 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
   path = 'iniciars';
   path2 = 'registrarse';
-  constructor( private httpClient: HttpClient) { }
+  constructor( private httpClient: HttpClient,
+               private router: Router ) { }
 
   ngOnInit(): void {
   }
-
+  iniciarS() {
+    this.router.navigate(['/iniciars']);
+  }
+  registrarse() {
+    this.router.navigate(['/registrarse']);
+  }
   // loginUsuario(login){
   //   return this.http.post(`${this.URL}/Login.php`, JSON.stringify(login));
   // }

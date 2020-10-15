@@ -9,13 +9,18 @@
         <input type="text" [(ngModel)]="login.usuario">
     </div>
     <div class="form-group">
+        <br>
         <label for="Password">Clave</label>
         <br>
         <input type="password" [(ngModel)]="login.contrasena">
     </div>
-
-    <button (click)="loginUsuario()" class="btn btn-outline-success">Iniciar Sesion</button>
-    <a [routerLink]="['inicio']" class="btn btn-outline-danger">Cancelar</a>
-
-
+    <div>
+        <br>
+        <button (click)="loginUsuario()" class="btn btn-outline-success">Iniciar Sesion</button>
+        <a [routerLink]="['inicio']" class="btn btn-outline-danger">Cancelar</a>
+        <br><br>
+        <a (click)="volver()" class="btn-secundary">No tienes cuenta?,
+      Registrate.
+        </a>
+    </div>
 </div>
