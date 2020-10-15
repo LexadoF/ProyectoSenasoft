@@ -10,7 +10,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 // rutas
 import { APP_ROUTING } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {  } from '../app/services/login.service';
 import { LoginService } from './services/login.service';
 import { IniciarSComponent } from './components/iniciar-s/iniciar-s.component';
@@ -39,7 +39,8 @@ import { ClientesComponent } from './components/clientes/clientes.component';
     BrowserModule,
     APP_ROUTING,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     LoginService
