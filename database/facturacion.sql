@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2020 a las 16:05:00
+-- Tiempo de generación: 15-10-2020 a las 17:16:39
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.2.33
 
@@ -83,11 +83,11 @@ CREATE TABLE `empresa` (
 
 CREATE TABLE `factura` (
   `id` int(11) NOT NULL COMMENT 'Identificador unico de la factura',
-  `DocCliente` varchar(30) NOT NULL COMMENT 'Documento del cliente a quien se le realiza la factura',
-  `DocPersonaEncargada` varchar(30) NOT NULL COMMENT 'Documento del empleado o encargado que genera esta factura',
+  `DocCliente` varchar(30) NOT NULL DEFAULT ' ' COMMENT 'Documento del cliente a quien se le realiza la factura',
+  `DocPersonaEncargada` varchar(30) NOT NULL DEFAULT ' ' COMMENT 'Documento del empleado o encargado que genera esta factura',
   `fecha` date NOT NULL DEFAULT current_timestamp() COMMENT 'fecha de la factura, por defecto es la fecha actual',
   `Valor total` double NOT NULL DEFAULT 0 COMMENT 'Valor total de la factura, calculado mediante los datos consultados de datosfacturaproducto sumando todos los valores unitarios',
-  `estado` tinyint(1) NOT NULL COMMENT 'estado de la factura, la cual es en espera en caso de no contarse con stock'
+  `estado` tinyint(1) NOT NULL DEFAULT 1 COMMENT 'estado de la factura, la cual es en espera en caso de no contarse con stock'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
