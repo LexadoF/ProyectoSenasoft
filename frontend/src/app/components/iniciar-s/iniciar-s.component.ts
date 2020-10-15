@@ -25,15 +25,15 @@ export class IniciarSComponent {
     this.router.navigate(['/registrarse']);
   }
 
-  loginUsuario(){
-    this.loginService.loginUsuario(this.login).subscribe (
-      datos => {
-        if(datos[ "resultado" ] === 'OK'){
-          alert(datos['Mensaje']);
-        } else {
-          alert(datos['Mensaje']);
-        }
-      }
-    );
-  }
+  // loginUsuario(){
+  //   this.loginService.loginUsuario(this.login).subscribe (
+  //     datos => {
+  //       if(datos[ "resultado" ] === 'OK'){
+  //         alert(datos['Mensaje']);
+  //       } else {
+  //         alert(datos['Mensaje']);
+  //       }
+  //     }
+  //   );
+  // }
 }

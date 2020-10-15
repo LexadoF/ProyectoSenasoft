@@ -7,6 +7,10 @@ import { RegistrarseComponent } from './components/registrarse/registrarse.compo
 import { InventarioComponent } from './components/inventario/inventario.component';
 import { FacturaComponent } from './components/factura/factura.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AuthguardGuard } from './authguard.guard';
 
 
 
@@ -21,6 +25,11 @@ const APP_ROUTES: Routes = [
   {path: 'cliente', component: ClientesComponent },
 
   {path: '**', pathMatch: 'full', redirectTo: 'inicio'}
+// { path: '', component: LoginComponent },
+// { path: 'login', component: LoginComponent },
+// { path: 'inicio', component: InicioComponent },
+// { path: 'registration', component: RegisterComponent },
+// { path: 'dashboard', component: DashboardComponent, canActivate: [AuthguardGuard] }
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);

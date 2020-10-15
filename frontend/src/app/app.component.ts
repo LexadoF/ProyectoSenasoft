@@ -1,30 +1,38 @@
 import { Component } from '@angular/core';
-import { LoginService } from './services/login.service';
+import { ApiService } from '../app/services/api.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+selector: 'app-root',
+templateUrl: './app.component.html',
+styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  login = {
-    usuario: null,
-    contrasena: null
-  };
+loginbtn:boolean;
+logoutbtn:boolean;
 
-  constructor( private loginService: LoginService ){
+constructor(private dataService: ApiService) {
+dataService.getLoggedInName.subscribe(name => this.changeName(name));
+if(this.dataService.isLoggedIn())
+{
+console.log("loggedin");
+this.loginbtn=false;
+this.logoutbtn=true
+}
+else{
+this.loginbtn=true;
+this.logoutbtn=false
+}
 
+}
 
-  }
-  loginUsuario(){
-    this.loginService.loginUsuario(this.login).subscribe (
-      datos => {
-        if(datos[ "resultado" ] == 'OK'){
-          alert(datos['Mensaje']);
-        } else {
-          alert(datos['Mensaje']);
-        }
-      }
-    );
-  }
+private changeName(name: boolean): void {
+this.logoutbtn = name;
+this.loginbtn = !name;
+}
+logout()
+{
+this.dataService.deleteToken();
+window.location.href = window.location.href;
+}
 }

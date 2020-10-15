@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter, Output } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -6,10 +7,28 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService {
 
-  URL = "http://localhost/Angular"
-  constructor( private http: HttpClient ) { }
+  URL = "http://localhost/php";
+  @Output()  getLoggedInName: EventEmitter<any> = new EventEmitter();
 
-loginUsuario(login){
-    return this.http.post(`${this.URL}/Login.php`, JSON.stringify(login));
+  constructor( private httpClient: HttpClient) { }
+
+
+public userlogin( username, password){
+alert(username)
+return this.httpClient.post<any>(this.URL + '/login.php', { username, password })
+.pipe(map(Users => {
+this.setToken(Users[0].name);
+this.getLoggedInName.emit(true);
+return Users;
+}));
   }
-}
+
+
+//token
+setToken(token: string) {
+  localStorage.setItem('token', token);
+  }
+// loginUsuario(login){
+//     return this.http.post(`${this.URL}/login.php`, JSON.stringify(login));
+//   }
+ }
