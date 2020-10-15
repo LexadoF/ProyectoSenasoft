@@ -10,7 +10,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 //rutas
 import { APP_ROUTING } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import {  } from '../app/services/login.service';
 import { LoginService } from './services/login.service';
 import { IniciarSComponent } from './components/iniciar-s/iniciar-s.component';
@@ -19,12 +19,6 @@ import { InventarioComponent } from './components/inventario/inventario.componen
 import { FacturaComponent } from './components/factura/factura.component';
 
 import { ClientesComponent } from './components/clientes/clientes.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-
-
-
 
 
 
@@ -39,17 +33,13 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     RegistrarseComponent,
     InventarioComponent,
     FacturaComponent,
-    ClientesComponent,
-    LoginComponent,
-    RegisterComponent,
-    DashboardComponent
+    ClientesComponent
   ],
   imports: [
     BrowserModule,
     APP_ROUTING,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
+    FormsModule
   ],
   providers: [
     LoginService
