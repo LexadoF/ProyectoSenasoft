@@ -7,7 +7,7 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 
-//rutas
+// rutas
 import { APP_ROUTING } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';

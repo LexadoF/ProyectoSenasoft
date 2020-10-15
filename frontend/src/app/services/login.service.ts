@@ -6,7 +6,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService {
 
-  URL = "http://localhost/php"
+
+
+  URL = 'http://localhost/Angular';
   constructor( private httpClient: HttpClient ) { }
 
 loginUsuario(login){
