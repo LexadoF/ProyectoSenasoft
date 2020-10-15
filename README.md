@@ -17,12 +17,6 @@ En esta carpeta se encuentra el script de la Base de Datos
 
 En esta carpeta se encuentra el codigo de la logica o backend de la aplicación.
 
-<!-- ### Inicialización de modulos del backend
-
-Debe usarse en la consola `cd backend` y dentro de esa 
-carpeta ejecutar `composer install` para que se reinstalen los modulos de composer localmente, y posteriormente poder ejecutar el comando
-`php artisan serve` para iniciar el proyecto en modo local. -->
-
 ## Carpeta Frontend
 
 En esta carpeta se encuentra el codigo de las vistas o frontend.
@@ -42,11 +36,15 @@ Podrá generar una nueva factura y en caso de que se requiera, ingresar un nuevo
 El sistema permite cargar desde un archivo csv de excel los datos de los productos que seran ingresados al stock, permitiendo una alimentación
 rapida y segura de la base de datos.
 
-<!-- ## Seguridad ante desconexion
-El sistema permite en caso de que se cierre la pestaña o se desconecte de la aplicacion puedas restaurar la ultima factura como un borrador -->
-
 # Uso objetivo
 
 Su objetivo principal es dar a las empresas un mejor control y manejo de sus respectivos clientes, facturaciones e inventario pudiendo
 generar facturas, cargar la base de datos con datos pertinentes de los productos en stock y poder realizar
 Se piensa la implementación de esta aplicacion de manera interna en las empresas, impidiendo el acceso a terceros no autorizados.
+
+<!-- ## Seguridad ante desconexion
+El sistema permite en caso de que se cierre la pestaña o se desconecte de la aplicacion puedas restaurar la ultima factura como un borrador -->
+
+# Manejo optimo de informacion y facilidad de uso
+
+
