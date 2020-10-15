@@ -1,7 +1,7 @@
 <?php
 
 // incluye la configuracion / y la conexion de la base de datos
-require_once("config/db.php");
+require_once("conexion.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
