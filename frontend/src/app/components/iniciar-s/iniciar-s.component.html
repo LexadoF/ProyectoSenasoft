@@ -1,4 +1,3 @@
-<p>iniciar-s works!</p>
 <div align="center">
     <h2 class="text-center">Login</h2>
     <div class="row">
@@ -6,7 +5,7 @@
         </div>
         <div class="col-md-4 col-md-offset-5">
             <div class="jumbotron">
-                <form [formGroup]="angForm" (ngSubmit)="postdata(angForm)" autocomplete="off">
+                <form [formGroup]="inForm" (ngSubmit)="postdata(inForm)" autocomplete="off">
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" name="email" formControlName="email" autocomplete="off" class="form-control input-sm">
@@ -23,28 +22,3 @@
         </div>
     </div>
 </div>
-
-
-<!-- <h1>Login</h1>
-
-    <div class="form">
-        <br>
-        <label for="Email">Documento</label>
-        <br>
-        <input type="text" [(ngModel)]="login.usuario">
-    </div>
-    <div class="form-group">
-        <br>
-        <label for="Password">Clave</label>
-        <br>
-        <input type="password" [(ngModel)]="login.contrasena">
-    </div>
-    <div>
-        <br>
-        <button (click)="loginUsuario()" class="btn btn-outline-success">Iniciar Sesion</button>
-        <a [routerLink]="['inicio']" class="btn btn-outline-danger">Cancelar</a>
-        <br><br>
-        <a (click)="volver()" class="btn-secundary">No tienes cuenta?,
-      Registrate.
-        </a>
-    </div> -->

@@ -7,6 +7,7 @@ import { RegistrarseComponent } from './components/registrarse/registrarse.compo
 import { InventarioComponent } from './components/inventario/inventario.component';
 import { FacturaComponent } from './components/factura/factura.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
+import { PrincipalComponent } from './components/principal/principal.component';
 
 
 
@@ -19,7 +20,7 @@ const APP_ROUTES: Routes = [
   {path: 'inventario', component: InventarioComponent },
   {path: 'factura', component: FacturaComponent },
   {path: 'cliente', component: ClientesComponent },
-
+  {path: 'principal', component: PrincipalComponent },
   {path: '**', pathMatch: 'full', redirectTo: 'inicio'}
 ];
 

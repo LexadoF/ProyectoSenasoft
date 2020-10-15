@@ -12,9 +12,9 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./iniciar-s.component.css']
 })
 export class IniciarSComponent {
-  angForm: FormGroup;
+  inForm: FormGroup;
   constructor(private fb: FormBuilder, private dataService: ApiService, private router: Router) {
-  this.angForm = this.fb.group({
+  this.inForm = this.fb.group({
   email: ['', [Validators.required, Validators.minLength(1), Validators.email]],
   password: ['', Validators.required]
   });
@@ -22,19 +22,19 @@ export class IniciarSComponent {
 
   ngOnInit() {
   }
-  postdata(angForm1)
+  postdata(inForm1)
   {
-  this.dataService.userlogin(angForm1.value.email,angForm1.value.password)
+  this.dataService.userlogin(inForm1.value.email, inForm1.value.password)
   .pipe(first())
   .subscribe(
   data => {
-  const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl : '/dashboard';
+  const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl : '/principal';
   this.router.navigate([redirect]);
   },
   error => {
-  alert("User name or password is incorrect")
+  alert("El Usuario O Contraseña Es Incorrecto")
   });
   }
-  get email() { return this.angForm.get('email'); }
-  get password() { return this.angForm.get('password'); }
+  get email() { return this.inForm.get('email'); }
+  get password() { return this.inForm.get('password'); }
 }

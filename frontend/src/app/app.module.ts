@@ -19,6 +19,7 @@ import { InventarioComponent } from './components/inventario/inventario.componen
 import { FacturaComponent } from './components/factura/factura.component';
 
 import { ClientesComponent } from './components/clientes/clientes.component';
+import { PrincipalComponent } from './components/principal/principal.component';
 
 
 
@@ -33,7 +34,8 @@ import { ClientesComponent } from './components/clientes/clientes.component';
     RegistrarseComponent,
     InventarioComponent,
     FacturaComponent,
-    ClientesComponent
+    ClientesComponent,
+    PrincipalComponent
   ],
   imports: [
     BrowserModule,
