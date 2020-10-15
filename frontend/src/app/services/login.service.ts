@@ -6,10 +6,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService {
 
+
+
   URL = 'http://localhost/Angular';
-  constructor( private http: HttpClient ) { }
+  constructor( private httpClient: HttpClient ) { }
 
 loginUsuario(login){
-    return this.http.post(`${this.URL}/Login.php`, JSON.stringify(login));
+    return this.httpClient.post(`${this.URL}/login.php`, JSON.stringify(login));
   }
 }

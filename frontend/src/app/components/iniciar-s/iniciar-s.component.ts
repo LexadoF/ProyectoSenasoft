@@ -1,6 +1,10 @@
+
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../../services/login.service';
+import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
+import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { ApiService } from '../../services/api.service';
+
 
 @Component({
   selector: 'app-iniciar-s',
@@ -8,32 +12,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./iniciar-s.component.css']
 })
 export class IniciarSComponent {
-  login = {
-    usuario: null,
-    contrasena: null
-  };
-  path = 'inicio';
-  path2 = 'registrarse';
-
-  constructor( private loginService: LoginService,
-               private router: Router ){}
-
-  ngOnInit(): void {
+  angForm: FormGroup;
+  constructor(private fb: FormBuilder, private dataService: ApiService, private router: Router) {
+  this.angForm = this.fb.group({
+  email: ['', [Validators.required, Validators.minLength(1), Validators.email]],
+  password: ['', Validators.required]
+  });
   }
 
-  volver() {
-    this.router.navigate(['/registrarse']);
+  ngOnInit() {
   }
-
-  loginUsuario(){
-    this.loginService.loginUsuario(this.login).subscribe (
-      datos => {
-        if (datos[ 'resultado' ] === 'OK'){
-          alert(datos['Mensaje']);
-        } else {
-          alert(datos['Mensaje']);
-        }
-      }
-    );
+  postdata(angForm1)
+  {
+  this.dataService.userlogin(angForm1.value.email,angForm1.value.password)
+  .pipe(first())
+  .subscribe(
+  data => {
+  const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl : '/dashboard';
+  this.router.navigate([redirect]);
+  },
+  error => {
+  alert("User name or password is incorrect")
+  });
   }
+  get email() { return this.angForm.get('email'); }
+  get password() { return this.angForm.get('password'); }
 }
