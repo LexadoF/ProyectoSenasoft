@@ -20,6 +20,7 @@ import { FacturaComponent } from './components/factura/factura.component';
 
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { PrincipalComponent } from './components/principal/principal.component';
+import { Nav2Component } from './components/nav2/nav2.component';
 
 
 
@@ -35,7 +36,8 @@ import { PrincipalComponent } from './components/principal/principal.component';
     InventarioComponent,
     FacturaComponent,
     ClientesComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    Nav2Component
   ],
   imports: [
     BrowserModule,
