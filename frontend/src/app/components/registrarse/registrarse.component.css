@@ -1,3 +1,5 @@
+/* Estilo local de boton, permite en el formulario de registro que los botones se encuentren 15 pixeles mas abajo  */
+
 .btn {
     margin-top: 15px;
 }
