@@ -3,35 +3,48 @@
     <h1>Registrarse</h1>
 
     <div class="form">
+        <br>
         <label for="text">Nombre Completo</label>
         <br>
         <input type="text">
     </div>
     <div class="form">
+        <br>
         <label for="text">Documento</label>
         <br>
         <input type="text">
     </div>
     <div class="form">
+        <br>
         <label for="Email">Correo</label>
         <br>
         <input type="text">
     </div>
     <div class="form">
+        <br>
         <label for="text">Empresa</label>
         <br>
         <input type="text">
     </div>
     <div class="form">
+        <br>
         <label for="password">Contarseña</label>
         <br>
         <input type="text">
     </div>
     <div class="form">
+        <br>
         <label for="Password">Confirmar Contarseña</label>
         <br>
         <input type="password">
     </div>
-    <button class="btn btn-primary">Registrarse</button>
-    <a [routerLink]="['inicio']" class="btn btn-outline-danger">Cancelar</a>
+    <div>
+        <br>
+        <button class="btn btn-primary">Registrarse</button>
+        <a [routerLink]="['inicio']" class="btn btn-outline-danger">Cancelar</a>
+        <br><br>
+        <a (click)="volver()" class="btn-secundary">Ya tienes cuenta?,
+        Inicia Sesion.
+        </a>
+    </div>
 </div>
