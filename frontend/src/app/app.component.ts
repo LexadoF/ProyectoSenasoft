@@ -19,7 +19,7 @@ export class AppComponent {
   loginUsuario(){
     this.loginService.loginUsuario(this.login).subscribe (
       datos => {
-        if(datos[ "resultado" ] == 'OK'){
+        if ( datos[ 'resultado' ] == 'OK'){
           alert(datos['Mensaje']);
         } else {
           alert(datos['Mensaje']);
