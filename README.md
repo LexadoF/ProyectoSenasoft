@@ -4,7 +4,6 @@ solución a la problemática planteada.
 
 # Carpetas del proyecto
 
-
 ## Carpeta: Documentacion
 En esta carpeta se encuentra contenida la documentacion basica del proyecto.
 
@@ -22,14 +21,8 @@ carpeta ejecutar `composer install` para que se reinstalen los modulos de compos
 ## Carpeta Frontend
 En esta carpeta se encuentra el codigo de las vistas o frontend.
 
-### Inicialización de modulos del Frontend
-Debe usarse en la consola `cd frontend` y dentro de esa carpeta
-ejecutar `npm i` para reinstalar los modulos de node localmente y posteriormente poder ejecutar el comando `ng serve` para iniciar el proyecto
-en modo local.
-
 
 # Funcionalidades del proyecto
-
 
 ## Funcionalidad principal
 El proyecto es un sistema de facturacion que se piensa sera usado por varias empresas, los encargados de cada empresa deben registrarse
@@ -45,4 +38,6 @@ rapida y segura de la base de datos.
 El sistema permite en caso de que se cierre la pestaña o se desconecte de la aplicacion puedas restaurar la ultima factura como un borrador -->
 
 # Uso objetivo
+Su objetivo principal es dar a las empresas un mejor control y manejo de sus respectivos clientes, facturaciones e inventario pudiendo
+generar facturas, cargar la base de datos con datos pertinentes de los productos en stock y poder realizar
 Se piensa la implementación de esta aplicacion de manera interna en las empresas, impidiendo el acceso a terceros no autorizados.
